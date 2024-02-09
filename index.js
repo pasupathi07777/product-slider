@@ -9,12 +9,15 @@ let wid;
 
 
 let index;
+console.log(img_btn[0].classList.add("img-box-active"))
+
 
 
 img_btn.forEach((a,i)=>{
     a.addEventListener("click",(e)=>{
         
         index=i+1
+        img_btn[index-1].classList.add("img-box-active")
        
         updatebox(index)
     })
@@ -22,18 +25,21 @@ img_btn.forEach((a,i)=>{
 console.log(index)
 
 function updatebox(index){
+    
 
     let width=document.querySelector(".box-1 img:first-child").clientWidth
     width=(index-1)*width
-    console.log(width)
+    
+   
     box_1.style.transform=`translateX(${-width}px)`; 
 
     // let f_ind=(index==0)?0:index-1
     let boder_int=index-1
     
 
-    // img_btn[index-1].classList.add("img-box-active")
+   
     img_btn.forEach((a,i)=>{
+       
         if(boder_int==0){
             img_btn[0].classList.add("img-box-active")
             img_btn[1].classList.remove("img-box-active")
@@ -41,7 +47,8 @@ function updatebox(index){
             
 
         }
-        else if(boder_int==1){
+        
+        if(boder_int==1){
             img_btn[1].classList.add("img-box-active")
             img_btn[0].classList.remove("img-box-active")
             img_btn[2].classList.remove("img-box-active")
